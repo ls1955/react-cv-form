@@ -169,7 +169,11 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
           </li>
         </ul>
       </section>
-      <button onClick={handleEdit}>Edit form</button>
+
+      <p>
+        Thanks for submitting the form. You could still{" "}
+        <button onClick={handleEdit}>edit the form</button>.
+      </p>
     </div>
   );
 }
