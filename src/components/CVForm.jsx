@@ -18,10 +18,17 @@ export default function CVForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitClicked(true);
-  }
+  };
 
   if (submitClicked) {
-    return <CVFormResult info={info} eduExps={eduExps} jobExps={jobExps} />
+    return (
+      <CVFormResult
+        info={info}
+        eduExps={eduExps}
+        jobExps={jobExps}
+        onEdit={setSubmitClicked}
+      />
+    );
   }
 
   return (
@@ -129,8 +136,40 @@ function JobExpsSection({ jobExps, onUpdate }) {
   );
 }
 
-function CVFormResult({ info, eduExps, jobExps }) {
-  // TODO: Output result accordingly
-  // TODO: Include an edit button that allow user to go back and modify the form
-  return <h1>THE RESULT</h1>
+function CVFormResult({ info, eduExps, jobExps, onEdit }) {
+  const handleEdit = () => onEdit(false);
+
+  return (
+    <div className="result">
+      <section>
+        <h1>{info["name"]}</h1>
+        <p>
+          <b>Email:</b> {info["email"]}
+        </p>
+        <p>
+          <b>Contact:</b> {info["tel"]}
+        </p>
+      </section>
+      <section>
+        <h2>Educational Experiences</h2>
+        <hr />
+        <ul>
+          <li>
+            {eduExps["schoolName"]} {`(Graduated at ${eduExps["gradDate"]})`}
+            <p>{eduExps["major"]}</p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Job Experiences</h2>
+        <hr />
+        <ul>
+          <li>
+            {jobExps["from"]} - {jobExps["to"]} at {jobExps["companyName"]}
+          </li>
+        </ul>
+      </section>
+      <button onClick={handleEdit}>Edit form</button>
+    </div>
+  );
 }
