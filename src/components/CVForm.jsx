@@ -7,12 +7,18 @@ export default function CVForm() {
     major: "",
     gradDate: "",
   });
+  const [jobExps, setJobExps] = useState({
+    companyName: "",
+    position: "",
+    from: "",
+    to: "",
+  });
 
   return (
     <form>
       <GeneralInfoSection info={info} onUpdate={setInfo} />
       <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
-      <JobExpsSection />
+      <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />
     </form>
   );
 }
@@ -71,20 +77,38 @@ function EduExpsSection({ eduExps, onUpdate }) {
   );
 }
 
-function JobExpsSection() {
+function JobExpsSection({ jobExps, onUpdate }) {
+  const handleCompanyName = (e) =>
+    onUpdate({ ...jobExps, companyName: e.target.value });
+  const handlePosition = (e) =>
+    onUpdate({ ...jobExps, position: e.target.value });
+  const handleFrom = (e) => onUpdate({ ...jobExps, from: e.target.value });
+  const handleTo = (e) => onUpdate({ ...jobExps, to: e.target.value });
+
   return (
     <div>
       <label>
-        Company name: <input type="text" />
+        Company name:{" "}
+        <input
+          type="text"
+          value={jobExps["companyName"]}
+          onChange={handleCompanyName}
+        />
       </label>
       <label>
-        Position: <input type="text" />
+        Position:{" "}
+        <input
+          type="text"
+          value={jobExps["position"]}
+          onChange={handlePosition}
+        />
       </label>
       <label>
-        From: <input type="month" />
+        From:{" "}
+        <input type="month" value={jobExps["from"]} onChange={handleFrom} />
       </label>
       <label>
-        To: <input type="month" />
+        To: <input type="month" value={jobExps["to"]} onChange={handleTo} />
       </label>
     </div>
   );
