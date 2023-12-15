@@ -1,14 +1,17 @@
 import { useState } from "react";
 
 import GeneralInfoSection from "./GeneralInfoSection.jsx";
+import EduExpsSection from "./EduExpsSection.jsx";
 
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
-  const [eduExps, setEduExps] = useState({
-    school: "",
-    major: "",
-    gradDate: "",
-  });
+  const [eduExps, setEduExps] = useState([
+    {
+      school: "",
+      major: "",
+      gradDate: "",
+    },
+  ]);
   const [jobExps, setJobExps] = useState({
     company: "",
     position: "",
@@ -41,40 +44,6 @@ export default function CVForm() {
       <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />
       <button onClick={handleSubmit}>Submit</button>
     </form>
-  );
-}
-
-function EduExpsSection({ eduExps, onUpdate }) {
-  const handleSchool = (e) =>
-    onUpdate({ ...eduExps, school: e.target.value });
-  const handleMajor = (e) => onUpdate({ ...eduExps, major: e.target.value });
-  const handleGradDate = (e) =>
-    onUpdate({ ...eduExps, gradDate: e.target.value });
-
-  return (
-    <fieldset>
-      <legend>Educational Experiences</legend>
-      <label>
-        School:{" "}
-        <input
-          type="text"
-          value={eduExps["school"]}
-          onChange={handleSchool}
-        />
-      </label>
-      <label>
-        Major:{" "}
-        <input type="text" value={eduExps["major"]} onChange={handleMajor} />
-      </label>
-      <label>
-        Graduation Date:{" "}
-        <input
-          type="month"
-          value={eduExps["gradDate"]}
-          onChange={handleGradDate}
-        />
-      </label>
-    </fieldset>
   );
 }
 
@@ -117,7 +86,17 @@ function JobExpsSection({ jobExps, onUpdate }) {
 }
 
 function CVFormResult({ info, eduExps, jobExps, onEdit }) {
+  // Inform CVForm that we wanna edit the form again
   const handleEdit = () => onEdit(false);
+
+  const eduList = eduExps.map((eduExp, i) => {
+    return (
+      <li key={i}>
+        {eduExp["school"]} {`(Graduated at ${eduExp["gradDate"]})`}
+        <p>{eduExp["major"]}</p>
+      </li>
+    );
+  });
 
   return (
     <div className="result">
@@ -132,12 +111,7 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
       </section>
       <section>
         <h2>Educational Experiences</h2>
-        <ul>
-          <li>
-            {eduExps["school"]} {`(Graduated at ${eduExps["gradDate"]})`}
-            <p>{eduExps["major"]}</p>
-          </li>
-        </ul>
+        <ul>{eduList}</ul>
       </section>
       <section>
         <h2>Job Experiences</h2>
