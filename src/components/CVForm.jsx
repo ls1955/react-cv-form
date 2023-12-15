@@ -152,7 +152,6 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
       </section>
       <section>
         <h2>Educational Experiences</h2>
-        <hr />
         <ul>
           <li>
             {eduExps["schoolName"]} {`(Graduated at ${eduExps["gradDate"]})`}
@@ -162,7 +161,6 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
       </section>
       <section>
         <h2>Job Experiences</h2>
-        <hr />
         <ul>
           <li>
             {jobExps["from"]} - {jobExps["to"]} at {jobExps["companyName"]}
