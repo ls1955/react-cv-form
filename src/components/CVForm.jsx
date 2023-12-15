@@ -13,6 +13,16 @@ export default function CVForm() {
     from: "",
     to: "",
   });
+  const [submitClicked, setSubmitClicked] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitClicked(true);
+  }
+
+  if (submitClicked) {
+    return <CVFormResult info={info} eduExps={eduExps} jobExps={jobExps} />
+  }
 
   return (
     <form>
@@ -20,6 +30,7 @@ export default function CVForm() {
       <GeneralInfoSection info={info} onUpdate={setInfo} />
       <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
       <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />
+      <button onClick={handleSubmit}>Submit</button>
     </form>
   );
 }
@@ -116,4 +127,10 @@ function JobExpsSection({ jobExps, onUpdate }) {
       </label>
     </fieldset>
   );
+}
+
+function CVFormResult({ info, eduExps, jobExps }) {
+  // TODO: Output result accordingly
+  // TODO: Include an edit button that allow user to go back and modify the form
+  return <h1>THE RESULT</h1>
 }
