@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-import { GeneralInfoSection } from "./src/components/GeneralInfoSection.jsx";
+import GeneralInfoSection from "./GeneralInfoSection.jsx";
 
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
   const [eduExps, setEduExps] = useState({
-    schoolName: "",
+    school: "",
     major: "",
     gradDate: "",
   });
   const [jobExps, setJobExps] = useState({
-    companyName: "",
+    company: "",
     position: "",
     from: "",
     to: "",
@@ -45,8 +45,8 @@ export default function CVForm() {
 }
 
 function EduExpsSection({ eduExps, onUpdate }) {
-  const handleSchoolName = (e) =>
-    onUpdate({ ...eduExps, schoolName: e.target.value });
+  const handleSchool = (e) =>
+    onUpdate({ ...eduExps, school: e.target.value });
   const handleMajor = (e) => onUpdate({ ...eduExps, major: e.target.value });
   const handleGradDate = (e) =>
     onUpdate({ ...eduExps, gradDate: e.target.value });
@@ -55,11 +55,11 @@ function EduExpsSection({ eduExps, onUpdate }) {
     <fieldset>
       <legend>Educational Experiences</legend>
       <label>
-        School name:{" "}
+        School:{" "}
         <input
           type="text"
-          value={eduExps["schoolName"]}
-          onChange={handleSchoolName}
+          value={eduExps["school"]}
+          onChange={handleSchool}
         />
       </label>
       <label>
@@ -79,8 +79,8 @@ function EduExpsSection({ eduExps, onUpdate }) {
 }
 
 function JobExpsSection({ jobExps, onUpdate }) {
-  const handleCompanyName = (e) =>
-    onUpdate({ ...jobExps, companyName: e.target.value });
+  const handleCompany = (e) =>
+    onUpdate({ ...jobExps, company: e.target.value });
   const handlePosition = (e) =>
     onUpdate({ ...jobExps, position: e.target.value });
   const handleFrom = (e) => onUpdate({ ...jobExps, from: e.target.value });
@@ -90,11 +90,11 @@ function JobExpsSection({ jobExps, onUpdate }) {
     <fieldset>
       <legend>Job experiences</legend>
       <label>
-        Company name:{" "}
+        Company:{" "}
         <input
           type="text"
-          value={jobExps["companyName"]}
-          onChange={handleCompanyName}
+          value={jobExps["company"]}
+          onChange={handleCompany}
         />
       </label>
       <label>
@@ -134,7 +134,7 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
         <h2>Educational Experiences</h2>
         <ul>
           <li>
-            {eduExps["schoolName"]} {`(Graduated at ${eduExps["gradDate"]})`}
+            {eduExps["school"]} {`(Graduated at ${eduExps["gradDate"]})`}
             <p>{eduExps["major"]}</p>
           </li>
         </ul>
@@ -143,7 +143,7 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
         <h2>Job Experiences</h2>
         <ul>
           <li>
-            {jobExps["from"]} - {jobExps["to"]} at {jobExps["companyName"]}
+            {jobExps["from"]} - {jobExps["to"]} at {jobExps["company"]}
           </li>
         </ul>
       </section>
