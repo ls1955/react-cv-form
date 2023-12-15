@@ -16,6 +16,7 @@ export default function CVForm() {
 
   return (
     <form>
+      <h1>CV application</h1>
       <GeneralInfoSection info={info} onUpdate={setInfo} />
       <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
       <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />
@@ -29,7 +30,8 @@ function GeneralInfoSection({ info, onUpdate }) {
   const handleTel = (e) => onUpdate({ ...info, tel: e.target.value });
 
   return (
-    <div>
+    <fieldset>
+      <legend>General information</legend>
       <label>
         Name: <input type="text" value={info["name"]} onChange={handleName} />
       </label>
@@ -40,7 +42,7 @@ function GeneralInfoSection({ info, onUpdate }) {
       <label>
         Tel: <input type="tel" value={info["tel"]} onChange={handleTel} />
       </label>
-    </div>
+    </fieldset>
   );
 }
 
@@ -52,7 +54,8 @@ function EduExpsSection({ eduExps, onUpdate }) {
     onUpdate({ ...eduExps, gradDate: e.target.value });
 
   return (
-    <div>
+    <fieldset>
+      <legend>Educational Experiences</legend>
       <label>
         School name:{" "}
         <input
@@ -73,7 +76,7 @@ function EduExpsSection({ eduExps, onUpdate }) {
           onChange={handleGradDate}
         />
       </label>
-    </div>
+    </fieldset>
   );
 }
 
@@ -86,7 +89,8 @@ function JobExpsSection({ jobExps, onUpdate }) {
   const handleTo = (e) => onUpdate({ ...jobExps, to: e.target.value });
 
   return (
-    <div>
+    <fieldset>
+      <legend>Job experiences</legend>
       <label>
         Company name:{" "}
         <input
@@ -110,6 +114,6 @@ function JobExpsSection({ jobExps, onUpdate }) {
       <label>
         To: <input type="month" value={jobExps["to"]} onChange={handleTo} />
       </label>
-    </div>
+    </fieldset>
   );
 }
