@@ -2,22 +2,22 @@ import { useState } from "react";
 
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
-  const [eduInfo, setEduInfo] = useState({
+  const [eduExps, setEduExps] = useState({
     schoolName: "",
     major: "",
-    graduationDate: "",
+    gradDate: "",
   });
 
   return (
     <form>
-      <GeneralInformationSection info={info} onUpdate={setInfo} />
-      <EducationExperiencesSection eduInfo={eduInfo} onUpdate={setEduInfo} />
-      <PracticalExperiencesSection />
+      <GeneralInfoSection info={info} onUpdate={setInfo} />
+      <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
+      <JobExpsSection />
     </form>
   );
 }
 
-function GeneralInformationSection({ info, onUpdate }) {
+function GeneralInfoSection({ info, onUpdate }) {
   const handleName = (e) => onUpdate({ ...info, name: e.target.value });
   const handleEmail = (e) => onUpdate({ ...info, email: e.target.value });
   const handleTel = (e) => onUpdate({ ...info, tel: e.target.value });
@@ -38,12 +38,12 @@ function GeneralInformationSection({ info, onUpdate }) {
   );
 }
 
-function EducationExperiencesSection({ eduInfo, onUpdate }) {
+function EduExpsSection({ eduExps, onUpdate }) {
   const handleSchoolName = (e) =>
-    onUpdate({ ...eduInfo, schoolName: e.target.value });
-  const handleMajor = (e) => onUpdate({ ...eduInfo, major: e.target.value });
-  const handleGraduationDate = (e) =>
-    onUpdate({ ...eduInfo, graduationDate: e.target.value });
+    onUpdate({ ...eduExps, schoolName: e.target.value });
+  const handleMajor = (e) => onUpdate({ ...eduExps, major: e.target.value });
+  const handleGradDate = (e) =>
+    onUpdate({ ...eduExps, gradDate: e.target.value });
 
   return (
     <div>
@@ -51,27 +51,27 @@ function EducationExperiencesSection({ eduInfo, onUpdate }) {
         School name:{" "}
         <input
           type="text"
-          value={eduInfo["schoolName"]}
+          value={eduExps["schoolName"]}
           onChange={handleSchoolName}
         />
       </label>
       <label>
         Major:{" "}
-        <input type="text" value={eduInfo["major"]} onChange={handleMajor} />
+        <input type="text" value={eduExps["major"]} onChange={handleMajor} />
       </label>
       <label>
         Graduation Date:{" "}
         <input
           type="month"
-          value={eduInfo["graduationDate"]}
-          onChange={handleGraduationDate}
+          value={eduExps["gradDate"]}
+          onChange={handleGradDate}
         />
       </label>
     </div>
   );
 }
 
-function PracticalExperiencesSection() {
+function JobExpsSection() {
   return (
     <div>
       <label>
