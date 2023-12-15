@@ -1,5 +1,5 @@
 import React from "react";
-import CVForm from "./components/CVForm"
+import CVForm from "./components/CVForm";
 
 import "./App.css";
 
