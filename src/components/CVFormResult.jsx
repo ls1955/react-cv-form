@@ -5,7 +5,7 @@ export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
   const eduList = eduExps.map((eduExp, i) => {
     return (
       <li key={i}>
-        {eduExp["school"]} {`(Graduated at ${eduExp["gradDate"]})`}
+        {eduExp["school"]} {`(Graduated at ${eduExp["gradDate"].substring(0, 4)})`}
         <p>{eduExp["major"]}</p>
       </li>
     );
@@ -13,8 +13,8 @@ export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
   const jobList = jobExps.map((jobExp, i) => {
     return (
       <li key={i}>
-        {jobExp["position"]} at {jobExp["company"]} ({jobExp["from"]} -{" "}
-        {jobExp["to"]})
+        {jobExp["position"]} at {jobExp["company"]} ({jobExp["from"].substring(0, 4)} -{" "}
+        {jobExp["to"].substring(0, 4)})
       </li>
     );
   });
