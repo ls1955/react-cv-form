@@ -26,7 +26,7 @@ export default function CVForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const inputs = Array.from(document.querySelectorAll("input"))
+    const inputs = Array.from(document.querySelectorAll("input"));
     if (!inputs.every((input) => input.reportValidity())) return;
 
     setSubmitClicked(true);
@@ -78,29 +78,33 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
   });
 
   return (
-    <div className="result">
-      <section>
-        <h1>{info["name"]}</h1>
-        <p>
-          <b>Email:</b> {info["email"]}
-        </p>
-        <p>
-          <b>Contact:</b> {info["tel"]}
-        </p>
-      </section>
-      <section>
-        <h2>Educational Experiences</h2>
-        <ul>{eduList}</ul>
-      </section>
-      <section>
-        <h2>Job Experiences</h2>
-        <ul>{jobList}</ul>
-      </section>
-
+    <>
+      <div className="result">
+        <section>
+          <h1>{info["name"]}</h1>
+          <p>
+            <b>Email:</b> {info["email"]}
+          </p>
+          <p>
+            <b>Contact:</b> {info["tel"]}
+          </p>
+        </section>
+        <section>
+          <h2>Educational Experiences</h2>
+          <ul>{eduList}</ul>
+        </section>
+        <section>
+          <h2>Job Experiences</h2>
+          <ul>{jobList}</ul>
+        </section>
+      </div>
       <p className="notification">
         Thanks for submitting the form. You could still{" "}
-        <button onClick={handleEdit} className="edit-form-button">edit the form</button>.
+        <button onClick={handleEdit} className="edit-form-button">
+          edit the form here
+        </button>
+        .
       </p>
-    </div>
+    </>
   );
 }
