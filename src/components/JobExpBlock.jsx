@@ -1,4 +1,4 @@
-export default function JobExpBlock({ jobExp, index, onUpdate, jobExps }) {
+export default function JobExpBlock({ index, onUpdate, jobExps }) {
   const handleCompany = (e) => {
     const newJobExps = [...jobExps];
     newJobExps[index]["company"] = e.target.value;
@@ -24,23 +24,40 @@ export default function JobExpBlock({ jobExp, index, onUpdate, jobExps }) {
     <fieldset>
       <label>
         Company*:{" "}
-        <input type="text" value={jobExp["company"]} onChange={handleCompany} required/>
+        <input
+          type="text"
+          value={jobExps[index]["company"]}
+          onChange={handleCompany}
+          required
+        />
       </label>
       <label>
         Position*:{" "}
         <input
           type="text"
-          value={jobExp["position"]}
+          value={jobExps[index]["position"]}
           onChange={handlePosition}
           required
         />
       </label>
       <label>
         From*:{" "}
-        <input type="month" value={jobExp["from"]} max={jobExp["to"]} onChange={handleFrom} required/>
+        <input
+          type="month"
+          value={jobExps[index]["from"]}
+          onChange={handleFrom}
+          required
+        />
       </label>
       <label>
-        To*: <input type="month" value={jobExp["to"]} min={jobExp["from"]} onChange={handleTo} required/>
+        To*:{" "}
+        <input
+          type="month"
+          value={jobExps[index]["to"]}
+          min={jobExps[index]["from"]}
+          onChange={handleTo}
+          required
+        />
       </label>
     </fieldset>
   );

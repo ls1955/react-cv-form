@@ -1,4 +1,4 @@
-export default function EduExpBlock({ eduExp, index, onUpdate, eduExps }) {
+export default function EduExpBlock({ index, onUpdate, eduExps }) {
   const handleSchool = (e) => {
     const newEduExps = [...eduExps];
     newEduExps[index]["school"] = e.target.value;
@@ -21,7 +21,7 @@ export default function EduExpBlock({ eduExp, index, onUpdate, eduExps }) {
         School*:{" "}
         <input
           type="text"
-          value={eduExp["school"]}
+          value={eduExps[index]["school"]}
           onChange={handleSchool}
           required
         />
@@ -30,7 +30,7 @@ export default function EduExpBlock({ eduExp, index, onUpdate, eduExps }) {
         Major*:{" "}
         <input
           type="text"
-          value={eduExp["major"]}
+          value={eduExps[index]["major"]}
           onChange={handleMajor}
           required
         />
@@ -39,7 +39,7 @@ export default function EduExpBlock({ eduExp, index, onUpdate, eduExps }) {
         Graduation Date*:{" "}
         <input
           type="month"
-          value={eduExp["gradDate"]}
+          value={eduExps[index]["gradDate"]}
           onChange={handleGradDate}
           required
         />

@@ -12,15 +12,9 @@ export default function EduExpsSection({ eduExps, onUpdate }) {
       },
     ]);
   };
-  const eduBlocks = eduExps.map((eduExp, i) => {
+  const eduBlocks = eduExps.map((_, i) => {
     return (
-      <EduExpBlock
-        key={i}
-        eduExp={eduExp}
-        eduExps={eduExps}
-        index={i}
-        onUpdate={onUpdate}
-      />
+      <EduExpBlock key={i} eduExps={eduExps} index={i} onUpdate={onUpdate} />
     );
   });
 

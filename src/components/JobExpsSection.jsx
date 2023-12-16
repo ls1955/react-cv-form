@@ -3,19 +3,19 @@ import JobExpBlock from "./JobExpBlock";
 export default function JobExpsSection({ jobExps, onUpdate }) {
   const handleAddField = (e) => {
     e.preventDefault();
-    onUpdate([...jobExps, {
-      company: "", position: "", from: "", to: ""
-    }])
-  }
-  const jobBlocks = jobExps.map((jobExp, i) => {
+    onUpdate([
+      ...jobExps,
+      {
+        company: "",
+        position: "",
+        from: "",
+        to: "",
+      },
+    ]);
+  };
+  const jobBlocks = jobExps.map((_, i) => {
     return (
-      <JobExpBlock
-        key={i}
-        index={i}
-        jobExp={jobExp}
-        onUpdate={onUpdate}
-        jobExps={jobExps}
-      />
+      <JobExpBlock key={i} index={i} onUpdate={onUpdate} jobExps={jobExps} />
     );
   });
 
