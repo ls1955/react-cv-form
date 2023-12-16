@@ -40,13 +40,15 @@ export default function CVForm() {
   }
 
   return (
-    <form>
+    <div>
       <h1>CV application</h1>
-      <GeneralInfoSection info={info} onUpdate={setInfo} />
-      <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
-      <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />
-      <button onClick={handleSubmit}>Submit</button>
-    </form>
+      <form>
+        <GeneralInfoSection info={info} onUpdate={setInfo} />
+        <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
+        <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />
+        <button onClick={handleSubmit}>Submit</button>
+      </form>
+    </div>
   );
 }
 
@@ -91,9 +93,9 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
         <ul>{jobList}</ul>
       </section>
 
-      <p>
+      <p className="notification">
         Thanks for submitting the form. You could still{" "}
-        <button onClick={handleEdit}>edit the form</button>.
+        <button onClick={handleEdit} className="edit-form-button">edit the form</button>.
       </p>
     </div>
   );

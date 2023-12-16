@@ -1,14 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
 #root {
     padding: 0 2rem;
+}
+
+form {
+    border: 1px solid;
+    padding: 0.25rem 1rem;
 }
 
 fieldset {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 fieldset label {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.25rem;
+}
+
+form button {
+    background-color: rgb(220, 220, 220);
+    margin-bottom: 1rem;
+}
+
+button.edit-form-button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    text-decoration: underline;
+    padding: 0;
 }
