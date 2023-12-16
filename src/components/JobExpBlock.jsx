@@ -22,7 +22,6 @@ export default function JobExpBlock({ jobExp, index, onUpdate, jobExps }) {
 
   return (
     <fieldset>
-      <legend>Job experiences</legend>
       <label>
         Company:{" "}
         <input type="text" value={jobExp["company"]} onChange={handleCompany} />
