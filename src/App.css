@@ -9,38 +9,3 @@ body {
 #root {
     padding: 0 2rem;
 }
-
-form {
-    border: 1px solid;
-    padding: 0.25rem 1rem;
-    width: 100%;
-}
-
-fieldset {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-
-fieldset label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.25rem;
-}
-
-form button {
-    background-color: rgb(220, 220, 220);
-    margin-bottom: 1rem;
-}
-
-button.edit-form-button {
-    background-color: rgb(255, 255, 255);
-    border: none;
-    text-decoration: underline;
-    padding: 0;
-}
-
-.result {
-    border: 1px solid;
-    padding: 2rem;
-}

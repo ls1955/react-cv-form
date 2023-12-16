@@ -1,0 +1,22 @@
+#cv-form {
+    border: 1px solid;
+    padding: 0.25rem 1rem;
+    width: 100%;
+}
+
+#cv-form button {
+    background-color: rgb(220, 220, 220);
+    margin-bottom: 1rem;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+fieldset label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}

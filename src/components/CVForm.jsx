@@ -5,6 +5,8 @@ import EduExpsSection from "./EduExpsSection.jsx";
 import JobExpsSection from "./JobExpsSection.jsx";
 import CVFormResult from "./CVFormResult.jsx";
 
+import "../styles/CVForm.css";
+
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
   const [eduExps, setEduExps] = useState([
@@ -47,7 +49,7 @@ export default function CVForm() {
   return (
     <div>
       <h1>CV application</h1>
-      <form>
+      <form id="cv-form">
         <GeneralInfoSection info={info} onUpdate={setInfo} />
         <EduExpsSection eduExps={eduExps} onUpdate={setEduExps} />
         <JobExpsSection jobExps={jobExps} onUpdate={setJobExps} />

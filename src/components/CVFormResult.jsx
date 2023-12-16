@@ -1,3 +1,5 @@
+import "../styles/CVFormResult.css";
+
 export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
   // Inform CVForm that we wanna edit the form again
   const handleEdit = () => onEdit(false);
@@ -21,7 +23,7 @@ export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
 
   return (
     <>
-      <div className="result">
+      <div id="result">
         <section>
           <h1>{info["name"]}</h1>
           <p>

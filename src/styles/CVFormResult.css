@@ -1,0 +1,11 @@
+#result {
+    border: 1px solid;
+    padding: 2rem;
+}
+
+button.edit-form-button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+}
