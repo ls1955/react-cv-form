@@ -12,7 +12,7 @@ export default function EduExpsSection({ eduExps, onUpdate }) {
       },
     ]);
   };
-  const eduFields = eduExps.map((eduExp, i) => {
+  const eduBlocks = eduExps.map((eduExp, i) => {
     return (
       <EduExpBlock
         key={i}
@@ -27,7 +27,7 @@ export default function EduExpsSection({ eduExps, onUpdate }) {
   return (
     <fieldset>
       <legend>Educational Experiences</legend>
-      {eduFields}
+      {eduBlocks}
       <button onClick={handleAddField}>+</button>
     </fieldset>
   );
