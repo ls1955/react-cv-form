@@ -8,14 +8,14 @@ export default function GeneralInfoSection({ info, onUpdate }) {
     <fieldset>
       <legend>General information</legend>
       <label>
-        Name: <input type="text" value={info["name"]} onChange={handleName} />
+        Name*: <input type="text" value={info["name"]} onChange={handleName} required/>
       </label>
       <label>
-        Email:{" "}
-        <input type="email" value={info["email"]} onChange={handleEmail} />
+        Email*:{" "}
+        <input type="email" value={info["email"]} onChange={handleEmail} required/>
       </label>
       <label>
-        Tel: <input type="tel" value={info["tel"]} onChange={handleTel} />
+        Tel*: <input type="tel" value={info["tel"]} onChange={handleTel} required/>
       </label>
     </fieldset>
   );

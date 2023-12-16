@@ -25,6 +25,10 @@ export default function CVForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const inputs = Array.from(document.querySelectorAll("input"))
+    if (!inputs.every((input) => input.reportValidity())) return;
+
     setSubmitClicked(true);
   };
 

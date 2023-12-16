@@ -23,23 +23,24 @@ export default function JobExpBlock({ jobExp, index, onUpdate, jobExps }) {
   return (
     <fieldset>
       <label>
-        Company:{" "}
-        <input type="text" value={jobExp["company"]} onChange={handleCompany} />
+        Company*:{" "}
+        <input type="text" value={jobExp["company"]} onChange={handleCompany} required/>
       </label>
       <label>
-        Position:{" "}
+        Position*:{" "}
         <input
           type="text"
           value={jobExp["position"]}
           onChange={handlePosition}
+          required
         />
       </label>
       <label>
-        From:{" "}
-        <input type="month" value={jobExp["from"]} onChange={handleFrom} />
+        From*:{" "}
+        <input type="month" value={jobExp["from"]} max={jobExp["to"]} onChange={handleFrom} required/>
       </label>
       <label>
-        To: <input type="month" value={jobExp["to"]} onChange={handleTo} />
+        To*: <input type="month" value={jobExp["to"]} min={jobExp["from"]} onChange={handleTo} required/>
       </label>
     </fieldset>
   );

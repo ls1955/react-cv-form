@@ -18,19 +18,30 @@ export default function EduExpBlock({ eduExp, index, onUpdate, eduExps }) {
   return (
     <fieldset>
       <label>
-        School:{" "}
-        <input type="text" value={eduExp["school"]} onChange={handleSchool} />
+        School*:{" "}
+        <input
+          type="text"
+          value={eduExp["school"]}
+          onChange={handleSchool}
+          required
+        />
       </label>
       <label>
-        Major:{" "}
-        <input type="text" value={eduExp["major"]} onChange={handleMajor} />
+        Major*:{" "}
+        <input
+          type="text"
+          value={eduExp["major"]}
+          onChange={handleMajor}
+          required
+        />
       </label>
       <label>
-        Graduation Date:{" "}
+        Graduation Date*:{" "}
         <input
           type="month"
           value={eduExp["gradDate"]}
           onChange={handleGradDate}
+          required
         />
       </label>
     </fieldset>
