@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import GeneralInfoSection from "./GeneralInfoSection.jsx";
 import EduExpsSection from "./EduExpsSection.jsx";
+import JobExpsSection from "./JobExpsSection.jsx";
 
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
@@ -12,12 +13,14 @@ export default function CVForm() {
       gradDate: "",
     },
   ]);
-  const [jobExps, setJobExps] = useState({
-    company: "",
-    position: "",
-    from: "",
-    to: "",
-  });
+  const [jobExps, setJobExps] = useState([
+    {
+      company: "",
+      position: "",
+      from: "",
+      to: "",
+    },
+  ]);
   const [submitClicked, setSubmitClicked] = useState(false);
 
   const handleSubmit = (e) => {
@@ -47,44 +50,6 @@ export default function CVForm() {
   );
 }
 
-function JobExpsSection({ jobExps, onUpdate }) {
-  const handleCompany = (e) =>
-    onUpdate({ ...jobExps, company: e.target.value });
-  const handlePosition = (e) =>
-    onUpdate({ ...jobExps, position: e.target.value });
-  const handleFrom = (e) => onUpdate({ ...jobExps, from: e.target.value });
-  const handleTo = (e) => onUpdate({ ...jobExps, to: e.target.value });
-
-  return (
-    <fieldset>
-      <legend>Job experiences</legend>
-      <label>
-        Company:{" "}
-        <input
-          type="text"
-          value={jobExps["company"]}
-          onChange={handleCompany}
-        />
-      </label>
-      <label>
-        Position:{" "}
-        <input
-          type="text"
-          value={jobExps["position"]}
-          onChange={handlePosition}
-        />
-      </label>
-      <label>
-        From:{" "}
-        <input type="month" value={jobExps["from"]} onChange={handleFrom} />
-      </label>
-      <label>
-        To: <input type="month" value={jobExps["to"]} onChange={handleTo} />
-      </label>
-    </fieldset>
-  );
-}
-
 function CVFormResult({ info, eduExps, jobExps, onEdit }) {
   // Inform CVForm that we wanna edit the form again
   const handleEdit = () => onEdit(false);
@@ -94,6 +59,14 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
       <li key={i}>
         {eduExp["school"]} {`(Graduated at ${eduExp["gradDate"]})`}
         <p>{eduExp["major"]}</p>
+      </li>
+    );
+  });
+  const jobList = jobExps.map((jobExp, i) => {
+    return (
+      <li key={i}>
+        {jobExp["position"]} at {jobExp["company"]} ({jobExp["from"]} -{" "}
+        {jobExp["to"]})
       </li>
     );
   });
@@ -115,11 +88,7 @@ function CVFormResult({ info, eduExps, jobExps, onEdit }) {
       </section>
       <section>
         <h2>Job Experiences</h2>
-        <ul>
-          <li>
-            {jobExps["from"]} - {jobExps["to"]} at {jobExps["company"]}
-          </li>
-        </ul>
+        <ul>{jobList}</ul>
       </section>
 
       <p>
