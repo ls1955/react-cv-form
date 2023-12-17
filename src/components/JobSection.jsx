@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import JobFields from "./JobFields";
 
@@ -8,7 +9,9 @@ export default function JobSection({ jobs, onUpdate }) {
     onUpdate([...jobs, { company: "", position: "", from: "", to: "" }]);
   };
   const fieldsets = jobs.map((_, i) => {
-    return <JobFields key={i} jobs={jobs} index={i} onUpdate={onUpdate} />;
+    return (
+      <JobFields key={uuidv4()} jobs={jobs} index={i} onUpdate={onUpdate} />
+    );
   });
 
   return (

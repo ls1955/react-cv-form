@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import EducationFields from "./EducationFields";
 
@@ -10,7 +11,7 @@ export default function EducationSection({ educations, onUpdate }) {
   const fieldsets = educations.map((_, i) => {
     return (
       <EducationFields
-        key={i}
+        key={uuidv4()}
         educations={educations}
         index={i}
         onUpdate={onUpdate}
