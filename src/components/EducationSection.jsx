@@ -1,6 +1,6 @@
 import EduExpBlock from "./EduExpBlock";
 
-export default function EduExpsSection({ eduExps, onUpdate }) {
+export default function EducationSection({ eduExps, onUpdate }) {
   const handleAddField = (e) => {
     e.preventDefault();
     onUpdate([
