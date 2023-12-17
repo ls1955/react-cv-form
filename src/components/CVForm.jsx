@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import GeneralSection from "./GeneralSection.jsx";
 import EducationSection from "./EducationSection.jsx";
 import JobSection from "./JobSection.jsx";
@@ -34,3 +36,13 @@ export default function CVForm({
     </div>
   );
 }
+
+CVForm.propTypes = {
+  info: PropTypes.object,
+  setInfo: PropTypes.func,
+  educations: PropTypes.array,
+  setEducations: PropTypes.func,
+  jobs: PropTypes.array,
+  setJobs: PropTypes.func,
+  setShowCV: PropTypes.func,
+};

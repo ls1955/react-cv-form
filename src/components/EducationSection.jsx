@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import EducationFields from "./EducationFields";
 
 export default function EducationSection({ educations, onUpdate }) {
@@ -24,3 +26,8 @@ export default function EducationSection({ educations, onUpdate }) {
     </fieldset>
   );
 }
+
+EducationSection.propTypes = {
+  educations: PropTypes.array,
+  onUpdate: PropTypes.func,
+};

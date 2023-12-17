@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function EducationFields({ educations, index, onUpdate }) {
   const handleUpdate = (e) => {
     const newEducations = [...educations];
@@ -40,3 +42,9 @@ export default function EducationFields({ educations, index, onUpdate }) {
     </fieldset>
   );
 }
+
+EducationFields.propTypes = {
+  educations: PropTypes.array,
+  index: PropTypes.number,
+  onUpdate: PropTypes.func,
+};

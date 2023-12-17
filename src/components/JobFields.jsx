@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function JobFields({ jobs, index, onUpdate }) {
   const handleUpdate = (e) => {
     const newJobs = [...jobs];
@@ -51,3 +53,9 @@ export default function JobFields({ jobs, index, onUpdate }) {
     </fieldset>
   );
 }
+
+JobFields.propTypes = {
+  jobs: PropTypes.array,
+  index: PropTypes.number,
+  onUpdate: PropTypes.func,
+};

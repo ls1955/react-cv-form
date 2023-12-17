@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import "../styles/CV.css";
 
 export default function CV({ info, educations, jobs, onShowCV }) {
@@ -51,3 +53,10 @@ export default function CV({ info, educations, jobs, onShowCV }) {
     </>
   );
 }
+
+CV.propTypes = {
+  info: PropTypes.object,
+  educations: PropTypes.array,
+  jobs: PropTypes.array,
+  onShowCV: PropTypes.func,
+};

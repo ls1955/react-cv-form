@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import JobFields from "./JobFields";
 
 export default function JobSection({ jobs, onUpdate }) {
@@ -17,3 +19,8 @@ export default function JobSection({ jobs, onUpdate }) {
     </fieldset>
   );
 }
+
+JobSection.propTypes = {
+  jobs: PropTypes.array,
+  onUpdate: PropTypes.func,
+};
