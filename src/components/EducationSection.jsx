@@ -3,18 +3,16 @@ import EducationFields from "./EducationFields";
 export default function EducationSection({ educations, onUpdate }) {
   const handleAddField = (e) => {
     e.preventDefault();
-    onUpdate([
-      ...educations,
-      {
-        school: "",
-        major: "",
-        gradDate: "",
-      },
-    ]);
+    onUpdate([...educations, { school: "", major: "", gradDate: "" }]);
   };
   const fieldsets = educations.map((_, i) => {
     return (
-      <EducationFields key={i} educations={educations} index={i} onUpdate={onUpdate} />
+      <EducationFields
+        key={i}
+        educations={educations}
+        index={i}
+        onUpdate={onUpdate}
+      />
     );
   });
 
