@@ -1,10 +1,10 @@
 import EducationFields from "./EducationFields";
 
-export default function EducationSection({ eduExps, onUpdate }) {
+export default function EducationSection({ educations, onUpdate }) {
   const handleAddField = (e) => {
     e.preventDefault();
     onUpdate([
-      ...eduExps,
+      ...educations,
       {
         school: "",
         major: "",
@@ -12,9 +12,9 @@ export default function EducationSection({ eduExps, onUpdate }) {
       },
     ]);
   };
-  const fieldsets = eduExps.map((_, i) => {
+  const fieldsets = educations.map((_, i) => {
     return (
-      <EducationFields key={i} eduExps={eduExps} index={i} onUpdate={onUpdate} />
+      <EducationFields key={i} educations={educations} index={i} onUpdate={onUpdate} />
     );
   });
 

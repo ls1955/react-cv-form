@@ -1,18 +1,8 @@
-export default function EducationFields({ index, onUpdate, eduExps }) {
-  const handleSchool = (e) => {
-    const newEduExps = [...eduExps];
-    newEduExps[index]["school"] = e.target.value;
-    onUpdate(newEduExps);
-  };
-  const handleMajor = (e) => {
-    const newEduExps = [...eduExps];
-    newEduExps[index]["major"] = e.target.value;
-    onUpdate(newEduExps);
-  };
-  const handleGradDate = (e) => {
-    const newEduExps = [...eduExps];
-    newEduExps[index]["gradDate"] = e.target.value;
-    onUpdate(newEduExps);
+export default function EducationFields({ educations, index, onUpdate }) {
+  const handleUpdate = (e) => {
+    const newEducations = [...educations];
+    newEducations[index][e.target.name] = e.target.value;
+    onUpdate(newEducations);
   };
 
   return (
@@ -21,8 +11,9 @@ export default function EducationFields({ index, onUpdate, eduExps }) {
         School*:{" "}
         <input
           type="text"
-          value={eduExps[index]["school"]}
-          onChange={handleSchool}
+          name="school"
+          value={educations[index]["school"]}
+          onChange={handleUpdate}
           required
         />
       </label>
@@ -30,8 +21,9 @@ export default function EducationFields({ index, onUpdate, eduExps }) {
         Major*:{" "}
         <input
           type="text"
-          value={eduExps[index]["major"]}
-          onChange={handleMajor}
+          name="major"
+          value={educations[index]["major"]}
+          onChange={handleUpdate}
           required
         />
       </label>
@@ -39,8 +31,9 @@ export default function EducationFields({ index, onUpdate, eduExps }) {
         Graduation Date*:{" "}
         <input
           type="month"
-          value={eduExps[index]["gradDate"]}
-          onChange={handleGradDate}
+          name="gradDate"
+          value={educations[index]["gradDate"]}
+          onChange={handleUpdate}
           required
         />
       </label>

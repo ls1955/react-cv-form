@@ -9,7 +9,7 @@ import "../styles/CVForm.css";
 
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
-  const [eduExps, setEduExps] = useState([
+  const [educations, setEducations] = useState([
     {
       school: "",
       major: "",
@@ -51,7 +51,7 @@ export default function CVForm() {
       <h1>CV application</h1>
       <form id="cv-form">
         <GeneralInfoSection info={info} onUpdate={setInfo} />
-        <EducationSection eduExps={eduExps} onUpdate={setEduExps} />
+        <EducationSection educations={educations} onUpdate={setEducations} />
         <JobSection jobExps={jobExps} onUpdate={setJobExps} />
         <button onClick={handleSubmit}>Submit</button>
       </form>

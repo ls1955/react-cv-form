@@ -1,22 +1,22 @@
 import "../styles/CV.css";
 
-export default function CV({ info, eduExps, jobExps, onShowCV }) {
+export default function CV({ info, educations, jobExps, onShowCV }) {
   // Inform CVForm that we wanna edit the form again
   const handleEdit = () => onShowCV(false);
 
-  const educationExperiences = eduExps.map((eduExp, i) => {
+  const educationListItems = educations.map((edu, i) => {
     return (
       <li key={i}>
-        {eduExp["school"]} {`(Graduated at ${eduExp["gradDate"].substring(0, 4)})`}
-        <p>{eduExp["major"]}</p>
+        {edu["school"]} {`(Graduated at ${edu["gradDate"].substring(0, 4)})`}
+        <p>{edu["major"]}</p>
       </li>
     );
   });
   const jobExperiences = jobExps.map((jobExp, i) => {
     return (
       <li key={i}>
-        {jobExp["position"]} at {jobExp["company"]} ({jobExp["from"].substring(0, 4)} -{" "}
-        {jobExp["to"].substring(0, 4)})
+        {jobExp["position"]} at {jobExp["company"]} (
+        {jobExp["from"].substring(0, 4)} - {jobExp["to"].substring(0, 4)})
       </li>
     );
   });
@@ -35,7 +35,7 @@ export default function CV({ info, eduExps, jobExps, onShowCV }) {
         </section>
         <section>
           <h2>Educational Experiences</h2>
-          <ul>{educationExperiences}</ul>
+          <ul>{educationListItems}</ul>
         </section>
         <section>
           <h2>Job Experiences</h2>
