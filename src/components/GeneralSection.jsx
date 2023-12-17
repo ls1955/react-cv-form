@@ -1,5 +1,4 @@
-// The first sections of CVForm.
-export default function GeneralInfoSection({ info, onUpdate }) {
+export default function GeneralSection({ info, onUpdate }) {
   const handleName = (e) => onUpdate({ ...info, name: e.target.value });
   const handleEmail = (e) => onUpdate({ ...info, email: e.target.value });
   const handleTel = (e) => onUpdate({ ...info, tel: e.target.value });

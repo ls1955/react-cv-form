@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import GeneralInfoSection from "./GeneralInfoSection.jsx";
+import GeneralSection from "./GeneralSection.jsx";
 import EducationSection from "./EducationSection.jsx";
 import JobSection from "./JobSection.jsx";
 import CV from "./CV.jsx";
@@ -41,7 +41,7 @@ export default function CVForm() {
     <div>
       <h1>CV application</h1>
       <form id="cv-form">
-        <GeneralInfoSection info={info} onUpdate={setInfo} />
+        <GeneralSection info={info} onUpdate={setInfo} />
         <EducationSection educations={educations} onUpdate={setEducations} />
         <JobSection jobs={jobs} onUpdate={setJobs} />
         <button onClick={handleSubmit}>Submit</button>
