@@ -1,4 +1,4 @@
-import JobExpBlock from "./JobExpBlock";
+import JobFields from "./JobFields";
 
 export default function JobSection({ jobExps, onUpdate }) {
   const handleAddField = (e) => {
@@ -15,7 +15,7 @@ export default function JobSection({ jobExps, onUpdate }) {
   };
   const jobBlocks = jobExps.map((_, i) => {
     return (
-      <JobExpBlock key={i} index={i} onUpdate={onUpdate} jobExps={jobExps} />
+      <JobFields key={i} index={i} onUpdate={onUpdate} jobExps={jobExps} />
     );
   });
 

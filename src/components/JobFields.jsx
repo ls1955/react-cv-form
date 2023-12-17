@@ -1,4 +1,4 @@
-export default function JobExpBlock({ index, onUpdate, jobExps }) {
+export default function JobFields({ index, onUpdate, jobExps }) {
   const handleCompany = (e) => {
     const newJobExps = [...jobExps];
     newJobExps[index]["company"] = e.target.value;
