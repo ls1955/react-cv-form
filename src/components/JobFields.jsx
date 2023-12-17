@@ -12,7 +12,7 @@ export default function JobFields({ jobs, index, onUpdate }) {
   };
 
   return (
-    <div>
+    <div className="fields-wrapper">
       <button onClick={handleDelete} className="delete-button">
         X
       </button>

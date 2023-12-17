@@ -1,22 +1,41 @@
 #cv-form {
-    border: 1px solid;
-    padding: 0.25rem 1rem;
-    width: 100%;
+  border: 1px solid;
+  padding: 0.25rem 1rem;
+  width: 100%;
 }
 
 #cv-form button {
-    background-color: rgb(220, 220, 220);
-    margin-bottom: 1rem;
+  background-color: rgb(220, 220, 220);
+  margin-bottom: 1rem;
+}
+
+#cv-form button:hover,
+#cv-form .fields-wrapper .delete-button:hover {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(42, 42, 42, 0.8);
 }
 
 fieldset {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 fieldset label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.fields-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#cv-form .fields-wrapper .delete-button {
+  align-self: flex-end;
+
+  font-size: 0.75rem;
+  background-color: rgba(214, 214, 214, 0.8);
+  margin: 0.1rem;
 }
