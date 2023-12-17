@@ -1,22 +1,18 @@
-import { useState } from "react";
-
 import GeneralSection from "./GeneralSection.jsx";
 import EducationSection from "./EducationSection.jsx";
 import JobSection from "./JobSection.jsx";
-import CV from "./CV.jsx";
 
 import "../styles/CVForm.css";
 
-export default function CVForm() {
-  const [info, setInfo] = useState({ name: "", email: "", tel: "" });
-  const [educations, setEducations] = useState([
-    { school: "", major: "", gradDate: "" },
-  ]);
-  const [jobs, setJobs] = useState([
-    { company: "", position: "", from: "", to: "" },
-  ]);
-  const [showCV, setShowCV] = useState(false);
-
+export default function CVForm({
+  info,
+  setInfo,
+  educations,
+  setEducations,
+  jobs,
+  setJobs,
+  setShowCV,
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -25,17 +21,6 @@ export default function CVForm() {
 
     setShowCV(true);
   };
-
-  if (showCV) {
-    return (
-      <CV
-        info={info}
-        educations={educations}
-        jobs={jobs}
-        onShowCV={setShowCV}
-      />
-    );
-  }
 
   return (
     <div>
