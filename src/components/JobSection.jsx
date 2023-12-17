@@ -1,6 +1,6 @@
 import JobExpBlock from "./JobExpBlock";
 
-export default function JobExpsSection({ jobExps, onUpdate }) {
+export default function JobSection({ jobExps, onUpdate }) {
   const handleAddField = (e) => {
     e.preventDefault();
     onUpdate([
