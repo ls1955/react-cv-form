@@ -3,6 +3,7 @@ A CV form written in React. This project is part [The Odin Project's curriculum]
 
 ## Extra features
 * Allow multiple educational and job experiences
+* Remove educational or job experiences
 * Form verification
 
 ## Run the app locally
