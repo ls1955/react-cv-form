@@ -6,9 +6,16 @@ export default function EducationFields({ educations, index, onUpdate }) {
     newEducations[index][e.target.name] = e.target.value;
     onUpdate(newEducations);
   };
+  const handleDelete = (e) => {
+    e.preventDefault();
+    onUpdate(educations.toSpliced(index, 1));
+  }
 
   return (
-    <fieldset>
+    <div>
+    <button onClick={handleDelete} className="delete-button">X</button>
+
+      <fieldset>
       <label>
         School*:{" "}
         <input
@@ -40,6 +47,7 @@ export default function EducationFields({ educations, index, onUpdate }) {
         />
       </label>
     </fieldset>
+    </div>
   );
 }
 
