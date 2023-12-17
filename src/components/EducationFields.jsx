@@ -9,44 +9,46 @@ export default function EducationFields({ educations, index, onUpdate }) {
   const handleDelete = (e) => {
     e.preventDefault();
     onUpdate(educations.toSpliced(index, 1));
-  }
+  };
 
   return (
     <div>
-    <button onClick={handleDelete} className="delete-button">X</button>
+      <button onClick={handleDelete} className="delete-button">
+        X
+      </button>
 
       <fieldset>
-      <label>
-        School*:{" "}
-        <input
-          type="text"
-          name="school"
-          value={educations[index]["school"]}
-          onChange={handleUpdate}
-          required
-        />
-      </label>
-      <label>
-        Major*:{" "}
-        <input
-          type="text"
-          name="major"
-          value={educations[index]["major"]}
-          onChange={handleUpdate}
-          required
-        />
-      </label>
-      <label>
-        Graduation Date*:{" "}
-        <input
-          type="month"
-          name="gradDate"
-          value={educations[index]["gradDate"]}
-          onChange={handleUpdate}
-          required
-        />
-      </label>
-    </fieldset>
+        <label>
+          School*:{" "}
+          <input
+            type="text"
+            name="school"
+            value={educations[index]["school"]}
+            onChange={handleUpdate}
+            required
+          />
+        </label>
+        <label>
+          Major*:{" "}
+          <input
+            type="text"
+            name="major"
+            value={educations[index]["major"]}
+            onChange={handleUpdate}
+            required
+          />
+        </label>
+        <label>
+          Graduation Date*:{" "}
+          <input
+            type="month"
+            name="gradDate"
+            value={educations[index]["gradDate"]}
+            onChange={handleUpdate}
+            required
+          />
+        </label>
+      </fieldset>
     </div>
   );
 }
