@@ -16,7 +16,7 @@ export default function CVForm() {
       gradDate: "",
     },
   ]);
-  const [jobExps, setJobExps] = useState([
+  const [jobs, setJobs] = useState([
     {
       company: "",
       position: "",
@@ -39,8 +39,8 @@ export default function CVForm() {
     return (
       <CV
         info={info}
-        eduExps={eduExps}
-        jobExps={jobExps}
+        educations={educations}
+        jobs={jobs}
         onShowCV={setSubmitClicked}
       />
     );
@@ -52,7 +52,7 @@ export default function CVForm() {
       <form id="cv-form">
         <GeneralInfoSection info={info} onUpdate={setInfo} />
         <EducationSection educations={educations} onUpdate={setEducations} />
-        <JobSection jobExps={jobExps} onUpdate={setJobExps} />
+        <JobSection jobs={jobs} onUpdate={setJobs} />
         <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>

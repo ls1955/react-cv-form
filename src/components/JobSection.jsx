@@ -1,28 +1,18 @@
 import JobFields from "./JobFields";
 
-export default function JobSection({ jobExps, onUpdate }) {
+export default function JobSection({ jobs, onUpdate }) {
   const handleAddField = (e) => {
     e.preventDefault();
-    onUpdate([
-      ...jobExps,
-      {
-        company: "",
-        position: "",
-        from: "",
-        to: "",
-      },
-    ]);
+    onUpdate([...jobs, { company: "", position: "", from: "", to: "" }]);
   };
-  const jobBlocks = jobExps.map((_, i) => {
-    return (
-      <JobFields key={i} index={i} onUpdate={onUpdate} jobExps={jobExps} />
-    );
+  const fieldsets = jobs.map((_, i) => {
+    return <JobFields key={i} jobs={jobs} index={i} onUpdate={onUpdate} />;
   });
 
   return (
     <fieldset>
       <legend>Job experiences</legend>
-      {jobBlocks}
+      {fieldsets}
       <button onClick={handleAddField}>+</button>
     </fieldset>
   );

@@ -1,7 +1,6 @@
 import "../styles/CV.css";
 
-export default function CV({ info, educations, jobExps, onShowCV }) {
-  // Inform CVForm that we wanna edit the form again
+export default function CV({ info, educations, jobs, onShowCV }) {
   const handleEdit = () => onShowCV(false);
 
   const educationListItems = educations.map((edu, i) => {
@@ -12,11 +11,11 @@ export default function CV({ info, educations, jobExps, onShowCV }) {
       </li>
     );
   });
-  const jobExperiences = jobExps.map((jobExp, i) => {
+  const jobListItems = jobs.map((job, i) => {
     return (
       <li key={i}>
-        {jobExp["position"]} at {jobExp["company"]} (
-        {jobExp["from"].substring(0, 4)} - {jobExp["to"].substring(0, 4)})
+        {job["position"]} at {job["company"]} ({job["from"].substring(0, 4)} -{" "}
+        {job["to"].substring(0, 4)})
       </li>
     );
   });
@@ -39,7 +38,7 @@ export default function CV({ info, educations, jobExps, onShowCV }) {
         </section>
         <section>
           <h2>Job Experiences</h2>
-          <ul>{jobExperiences}</ul>
+          <ul>{jobListItems}</ul>
         </section>
       </div>
       <p className="notification">

@@ -1,23 +1,8 @@
-export default function JobFields({ index, onUpdate, jobExps }) {
-  const handleCompany = (e) => {
-    const newJobExps = [...jobExps];
-    newJobExps[index]["company"] = e.target.value;
-    onUpdate(newJobExps);
-  };
-  const handlePosition = (e) => {
-    const newJobExps = [...jobExps];
-    newJobExps[index]["position"] = e.target.value;
-    onUpdate(newJobExps);
-  };
-  const handleFrom = (e) => {
-    const newJobExps = [...jobExps];
-    newJobExps[index]["from"] = e.target.value;
-    onUpdate(newJobExps);
-  };
-  const handleTo = (e) => {
-    const newJobExps = [...jobExps];
-    newJobExps[index]["to"] = e.target.value;
-    onUpdate(newJobExps);
+export default function JobFields({ jobs, index, onUpdate }) {
+  const handleUpdate = (e) => {
+    const newJobs = [...jobs];
+    jobs[index][e.target.name] = e.target.value;
+    onUpdate(newJobs);
   };
 
   return (
@@ -26,8 +11,9 @@ export default function JobFields({ index, onUpdate, jobExps }) {
         Company*:{" "}
         <input
           type="text"
-          value={jobExps[index]["company"]}
-          onChange={handleCompany}
+          name="company"
+          value={jobs[index]["company"]}
+          onChange={handleUpdate}
           required
         />
       </label>
@@ -35,8 +21,9 @@ export default function JobFields({ index, onUpdate, jobExps }) {
         Position*:{" "}
         <input
           type="text"
-          value={jobExps[index]["position"]}
-          onChange={handlePosition}
+          name="position"
+          value={jobs[index]["position"]}
+          onChange={handleUpdate}
           required
         />
       </label>
@@ -44,8 +31,9 @@ export default function JobFields({ index, onUpdate, jobExps }) {
         From*:{" "}
         <input
           type="month"
-          value={jobExps[index]["from"]}
-          onChange={handleFrom}
+          name="from"
+          value={jobs[index]["from"]}
+          onChange={handleUpdate}
           required
         />
       </label>
@@ -53,9 +41,10 @@ export default function JobFields({ index, onUpdate, jobExps }) {
         To*:{" "}
         <input
           type="month"
-          value={jobExps[index]["to"]}
-          min={jobExps[index]["from"]}
-          onChange={handleTo}
+          name="to"
+          value={jobs[index]["to"]}
+          min={jobs[index]["from"]}
+          onChange={handleUpdate}
           required
         />
       </label>
