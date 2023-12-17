@@ -15,7 +15,7 @@ export default function CVForm() {
   const [jobs, setJobs] = useState([
     { company: "", position: "", from: "", to: "" },
   ]);
-  const [submitClicked, setSubmitClicked] = useState(false);
+  const [showCV, setShowCV] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,16 +23,16 @@ export default function CVForm() {
     const inputs = Array.from(document.querySelectorAll("input"));
     if (!inputs.every((input) => input.reportValidity())) return;
 
-    setSubmitClicked(true);
+    setShowCV(true);
   };
 
-  if (submitClicked) {
+  if (showCV) {
     return (
       <CV
         info={info}
         educations={educations}
         jobs={jobs}
-        onShowCV={setSubmitClicked}
+        onShowCV={setShowCV}
       />
     );
   }
