@@ -10,19 +10,10 @@ import "../styles/CVForm.css";
 export default function CVForm() {
   const [info, setInfo] = useState({ name: "", email: "", tel: "" });
   const [educations, setEducations] = useState([
-    {
-      school: "",
-      major: "",
-      gradDate: "",
-    },
+    { school: "", major: "", gradDate: "" },
   ]);
   const [jobs, setJobs] = useState([
-    {
-      company: "",
-      position: "",
-      from: "",
-      to: "",
-    },
+    { company: "", position: "", from: "", to: "" },
   ]);
   const [submitClicked, setSubmitClicked] = useState(false);
 
