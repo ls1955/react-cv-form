@@ -3,7 +3,7 @@ import { useState } from "react";
 import GeneralInfoSection from "./GeneralInfoSection.jsx";
 import EduExpsSection from "./EduExpsSection.jsx";
 import JobExpsSection from "./JobExpsSection.jsx";
-import CVFormResult from "./CVFormResult.jsx";
+import CV from "./CV.jsx";
 
 import "../styles/CVForm.css";
 
@@ -37,11 +37,11 @@ export default function CVForm() {
 
   if (submitClicked) {
     return (
-      <CVFormResult
+      <CV
         info={info}
         eduExps={eduExps}
         jobExps={jobExps}
-        onEdit={setSubmitClicked}
+        onShowCV={setSubmitClicked}
       />
     );
   }

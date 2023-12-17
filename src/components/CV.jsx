@@ -1,10 +1,10 @@
-import "../styles/CVFormResult.css";
+import "../styles/CV.css";
 
-export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
+export default function CV({ info, eduExps, jobExps, onShowCV }) {
   // Inform CVForm that we wanna edit the form again
-  const handleEdit = () => onEdit(false);
+  const handleEdit = () => onShowCV(false);
 
-  const eduList = eduExps.map((eduExp, i) => {
+  const educationExperiences = eduExps.map((eduExp, i) => {
     return (
       <li key={i}>
         {eduExp["school"]} {`(Graduated at ${eduExp["gradDate"].substring(0, 4)})`}
@@ -12,7 +12,7 @@ export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
       </li>
     );
   });
-  const jobList = jobExps.map((jobExp, i) => {
+  const jobExperiences = jobExps.map((jobExp, i) => {
     return (
       <li key={i}>
         {jobExp["position"]} at {jobExp["company"]} ({jobExp["from"].substring(0, 4)} -{" "}
@@ -23,7 +23,7 @@ export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
 
   return (
     <>
-      <div id="result">
+      <div id="CV">
         <section>
           <h1>{info["name"]}</h1>
           <p>
@@ -35,11 +35,11 @@ export default function CVFormResult({ info, eduExps, jobExps, onEdit }) {
         </section>
         <section>
           <h2>Educational Experiences</h2>
-          <ul>{eduList}</ul>
+          <ul>{educationExperiences}</ul>
         </section>
         <section>
           <h2>Job Experiences</h2>
-          <ul>{jobList}</ul>
+          <ul>{jobExperiences}</ul>
         </section>
       </div>
       <p className="notification">
