@@ -1,4 +1,4 @@
-import EduExpBlock from "./EduExpBlock";
+import EducationFields from "./EducationFields";
 
 export default function EducationSection({ eduExps, onUpdate }) {
   const handleAddField = (e) => {
@@ -12,16 +12,16 @@ export default function EducationSection({ eduExps, onUpdate }) {
       },
     ]);
   };
-  const eduBlocks = eduExps.map((_, i) => {
+  const fieldsets = eduExps.map((_, i) => {
     return (
-      <EduExpBlock key={i} eduExps={eduExps} index={i} onUpdate={onUpdate} />
+      <EducationFields key={i} eduExps={eduExps} index={i} onUpdate={onUpdate} />
     );
   });
 
   return (
     <fieldset>
       <legend>Educational Experiences</legend>
-      {eduBlocks}
+      {fieldsets}
       <button onClick={handleAddField}>+</button>
     </fieldset>
   );

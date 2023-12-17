@@ -1,4 +1,4 @@
-export default function EduExpBlock({ index, onUpdate, eduExps }) {
+export default function EducationFields({ index, onUpdate, eduExps }) {
   const handleSchool = (e) => {
     const newEduExps = [...eduExps];
     newEduExps[index]["school"] = e.target.value;
